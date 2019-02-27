@@ -9,13 +9,26 @@
 .side-nav {
     font-size: 1.4rem;
     list-style: none;
-    margin-top: 3.5rem;
+    margin-top: 0;
+    display: flex;
+    flex-direction: row;
+    
+    @include atMedium {
+        margin-top: 3.5rem;
+        flex-direction: column;
+    }
 
     &__item {
         position: relative;
+        flex: 1;
 
         &:not(:last-child) {
-            margin-bottom: .5rem;
+            margin-bottom: 0;
+            
+
+            @include atLarge {
+                margin-bottom: .5rem;
+            }
         }
     }
 
@@ -47,25 +60,41 @@
         text-decoration: none;
         text-transform: uppercase;
         display: block;
-        padding: 1.5rem 3rem;
+        padding: 1rem 2rem;
         display: flex;
+        flex-direction: column;
         align-items: center;
         position: relative;
         z-index: 10;
+        font-size: 1rem;
+
+        @include atSmall {
+            flex-direction: row;
+            padding: 1.5rem 3rem;
+            font-size: 1.4rem;
+        }
     }
 
 
     &__icon {
         width: 1.75rem;
         height: 1.75rem;
-        margin-right: 2rem;
+        margin-right: 0;
         fill: currentColor;
+        @include atSmall {
+            margin-right: 2rem;
+        }
     }
 }
 
 .legal {
+    display: none;
     font-size: 1.2rem;
     color: $gray-light-4;
     text-align: center;
     padding: 2.5rem;
+
+    @include atLarge {
+        display: block;
+    }
 }
